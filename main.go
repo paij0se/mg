@@ -119,56 +119,54 @@ func uwu() error {
 	wg.Add(1)
 	go func() {
 		freq := map[string]float64{
-			"D":  587,
-			"A":  880,
-			"G#": 830,
-			"G":  784,
-			"F":  698,
-			"A#": 932,
-			"C":  523,
-			"B":  987,
+			"D": 587,
+			"A": 880,
+			"P": 830,
+			"G": 784,
+			"F": 698,
+			"Ñ": 932,
+			"C": 523,
+			"B": 987,
 		}
 
 		duration := map[string]time.Duration{
-			"D":  time.Millisecond * 100,
-			"A":  time.Millisecond * 100,
-			"G#": time.Millisecond * 100,
-			"G":  time.Millisecond * 100,
-			"F":  time.Millisecond * 100,
-			"A#": time.Millisecond * 100,
-			"C":  time.Millisecond * 100,
-			"B":  time.Millisecond * 100,
+			"D": time.Millisecond * 150,
+			"A": time.Millisecond * 150,
+			"P": time.Millisecond * 150,
+			"G": time.Millisecond * 150,
+			"F": time.Millisecond * 150,
+			"Ñ": time.Millisecond * 150,
+			"C": time.Millisecond * 150,
+			"B": time.Millisecond * 150,
 		}
 
 		/*
 					NOTES:
 					D = 587
 					A = 880
-					G# = 830
+					P = 830
 					G = 784
 					F = 698
-					A# = 932
+					Ñ = 932
 
-			        D D (Oct. Higher) D A G# G F D F G C C
-					(Oct. Higher) D A G# G F D F G B B (Oct. Higher)
-					D A G# G F D F G A# A# (Oct. Higher) D A G# G F D
-					F G F F F F D D D F F F G G# G F D F G F F F G G#
+			        D D D A P G F D F G C C
+					D A P G F D F G B B
+					D A P G F D F G Ñ Ñ D A P G F D
+					F G F F F F D D D F F F G P G F D F G F F F G P
 					A C A D D D A D C A A A A G G G A A A A G A C A G D
-					A G F C G F E D D D D F C F D F G G# G F
+					A G F C G F E D D D D F C F D F G P G F
 
 					// https://www.reddit.com/r/UndertaleMusic/comments/6eeah8/what_are_the_letter_notes_for_megalovania/
 
 		*/
 
 		notes := map[string]string{
-			"D":  "D D",
-			"A":  "D A G# G F D F G C C",
-			"G#": "D A G# G F D F G B B",
-			"G":  "D A G# G F D F G A# A#",
-			"F":  "D A G# G F D F G F F",
-			"A#": "D A G# G F D F G A A",
-			"C":  "D A G# G F D F G A A",
-			"B":  "D A G# G F D F G A A",
+			"D": "DDDAPGFDFGCC",
+			"A": "DAPGFDFGBB",
+			"P": "DAPGFDFGÑÑDAPGFD",
+			"G": "FGFFFFDDDFFFGPGFDFGFFGP",
+			"F": "ACADDDADCAAAAGGGAAAAGACAGD",
+			"Ñ": "AGFCGFEDDDDFCFDFGPGF",
 		}
 		for {
 
@@ -177,7 +175,7 @@ func uwu() error {
 				for _, n := range note {
 					p := play(c, freq[string(n)], duration[string(n)])
 					players = append(players, p)
-					time.Sleep(100 * time.Millisecond)
+					time.Sleep(200 * time.Millisecond)
 					fmt.Println([...]string{string(n), "played"})
 				}
 			}
