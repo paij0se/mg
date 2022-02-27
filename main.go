@@ -130,14 +130,14 @@ func uwu() error {
 		}
 
 		duration := map[string]time.Duration{
-			"D": time.Millisecond * 150,
-			"A": time.Millisecond * 150,
-			"P": time.Millisecond * 150,
-			"G": time.Millisecond * 150,
-			"F": time.Millisecond * 150,
-			"Ñ": time.Millisecond * 150,
-			"C": time.Millisecond * 150,
-			"B": time.Millisecond * 150,
+			"D": time.Millisecond * 100,
+			"A": time.Millisecond * 100,
+			"P": time.Millisecond * 100,
+			"G": time.Millisecond * 100,
+			"F": time.Millisecond * 100,
+			"Ñ": time.Millisecond * 100,
+			"C": time.Millisecond * 100,
+			"B": time.Millisecond * 100,
 		}
 
 		/*
@@ -175,7 +175,7 @@ func uwu() error {
 				for _, n := range note {
 					p := play(c, freq[string(n)], duration[string(n)])
 					players = append(players, p)
-					time.Sleep(200 * time.Millisecond)
+					time.Sleep(170 * time.Millisecond)
 					fmt.Println([...]string{string(n), "played"})
 				}
 			}
